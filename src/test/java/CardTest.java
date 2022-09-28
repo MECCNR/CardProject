@@ -1,4 +1,5 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,16 +12,21 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 class CardTest {
-    private WebDriver driver;
+    WebDriver driver;
 
     @BeforeAll
-    static void setUpAll() {
+    static void setupAll() {
         WebDriverManager.chromedriver().setup();
     }
 
     @BeforeEach
-    void setUp() {
+    void setup() {
         driver = new ChromeDriver();
+    }
+
+    @AfterEach
+    void teardown() {
+        driver.quit();
     }
 
     @Test
