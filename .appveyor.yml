@@ -6,10 +6,7 @@ branches:
   only:
     - main
 
-build: off
-
 install:
-
   - java -jar ./artifacts/app-order.jar &
 
 build_script:
