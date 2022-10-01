@@ -18,6 +18,7 @@ class MoreNegativeTests {
         $("[data-test-id=phone] input").setValue("+79876543210");
         $("[data-test-id=agreement]").click();
         $("[role=button]").click();
+        $("[data-test-id=name]").shouldHave(cssClass("input_invalid"));
         $("[data-test-id=name] .input__inner .input__sub").shouldHave(exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
     }
 
@@ -27,6 +28,7 @@ class MoreNegativeTests {
         $("[data-test-id=phone] input").setValue("dsfsdfqwfgq");
         $("[data-test-id=agreement]").click();
         $("[role=button]").click();
+        $("[data-test-id=phone]").shouldHave(cssClass("input_invalid"));
         $("[data-test-id=phone] .input__inner .input__sub").shouldHave(exactText("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678."));
     }
 
@@ -41,6 +43,7 @@ class MoreNegativeTests {
     @Test
     void emptyFormTest() {
         $("[role=button]").click();
+        $("[data-test-id=name]").shouldHave(cssClass("input_invalid"));
         $("[data-test-id=name]  .input__inner .input__sub").shouldHave(exactText("Поле обязательно для заполнения"));
     }
 
@@ -48,6 +51,7 @@ class MoreNegativeTests {
     void emptyFormPhoneTest() {
         $("[data-test-id=name] input").setValue("Васильев Вася");
         $("[role=button]").click();
+        $("[data-test-id=phone]").shouldHave(cssClass("input_invalid"));
         $("[data-test-id=phone]  .input__inner .input__sub").shouldHave(exactText("Поле обязательно для заполнения"));
     }
 
@@ -57,6 +61,7 @@ class MoreNegativeTests {
         $("[data-test-id=phone] input").setValue("+79876543210");
         $("[data-test-id=agreement]").click();
         $("[role=button]").click();
+        $("[data-test-id=name]").shouldHave(cssClass("input_invalid"));
         $("[data-test-id=name]  .input__inner .input__sub").shouldHave(exactText("Поле обязательно для заполнения"));
     }
 
