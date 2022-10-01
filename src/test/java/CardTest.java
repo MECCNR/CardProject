@@ -29,6 +29,6 @@ class CardTest {
         $("[data-test-id=agreement]").click();
         $("[role=button]").click();
         $("[data-test-id=name]").shouldHave(cssClass("input_invalid"));
-        $("[data-test-id=name] .input__inner .input__sub").shouldHave(exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
+        $("[data-test-id=name].input_invalid .input__inner .input__sub").shouldHave(exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
     }
 }
